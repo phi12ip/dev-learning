@@ -1,0 +1,23 @@
+The Current state of machine intelligence 2.0:
+https://www.oreilly.com/ideas/the-current-state-of-machine-intelligence-2-0
+
+
+Canadain Machine learning:
+http://recode.net/2015/07/15/ai-conspiracy-the-scientists-behind-deep-learning/
+
+Geoffrey E. Hinton:
+http://www.cs.toronto.edu/~hinton/
+Interview with Geoffrey E. Hinton (May 2015): 
+https://www.youtube.com/watch?v=1Wp3IIpssEc
+
+Yoshua Bengio:
+http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html
+
+Yann LeCun:
+http://yann.lecun.com/
+
+Machine intelegence in the real world
+
+
+
+

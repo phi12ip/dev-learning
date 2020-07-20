@@ -1,0 +1,127 @@
+Java, HTML, HTML 5, CSS, CSS3, JavaScript / jQuery, bootstrap, node.JS, Rust, C#, SQL (SSMS), MySQL, Python, C++, C
+
+react js JSX / C# / Visual Studio
+node js
+
+
+tblUser - stores information in a table structure
+
+vwUser - combined table information just for viewing
+
+procUser.save - actionable tasks to perform on tables
+
+
+tblUser
+idUser | username | firstname | lastname | order
+	1	  jsparks	Josh		Sparks	 	1
+	2	  jsparks2	Josh		Sparks	 	2
+	3	  jspark4s	Josh		Sparks	 	4
+	4	  jspark3s	Josh		Sparks	 	5
+	5	  jspark4fs	Josh		Sparks	 	3
+	
+tblUserPhils
+idUser | username | firstname | lastname | order
+	1	  pmcguire	Phil		mcguire	 	1
+	2	  pmcguire2	Phil		mcguire	 	2
+	3	  pmcguir3e	Phil		mcguire	 	4
+	4	  p4mcguire	Phil		mcguire	 	5
+	5	  pmc5guire	Phil		mcguire	 	3
+	
+	
+Query is any SQL you are executing:
+ex: 
+select * from tblUser	
+
+pull all columns from tblUser
+
+you can specify specific columns through
+select idUser from tblUser
+
+This pulls specifically this one column from tblUser.
+This pulls information faster than *.
+
+----------------------------------------
+
+To add data to a table you would use:
+
+insert into tblUser (username, firstname, lastname, order)
+values ('jsparks','Josh','Sparks','6')
+
+note missing idUser because that is a "identity column" that was set when the table was created and you do not insert indentity columns they are set automatically.
+Also note single quotes! (do not use double quotes.)
+
+to insert multiple you would do:
+
+insert into tblUser (username, firstname, lastname, order)
+values ('jsparks45','Josh','Sparks','7'),
+('jsparks46','Josh','Sparks','8')
+
+to insert from another table:
+
+insert into tblUser  (username, firstname, lastname, order)
+select username, firstname, lastname, order from tblUserPhils
+where idUser > 2
+
+
+----------------------------------------
+
+if we want to merge data from two tables, we find a common element and link the two tables together.
+meaning: 
+
+
+
+tblUser
+idUser | username | firstname | lastname | order
+	1	  jsparks	Josh		Sparks	 	1
+	2	  jsparks2	Josh		Sparks	 	2
+	
+
+tblUserProperties
+idUser | address 		| city 		| state | zip
+	1	  913 Shore		Arnold			MD	21012
+	2	  TestLoc		Pasadena		MD	21122
+	
+select * tblUser U 
+left join tblUserProperties UP on U.idUser = UP.idUser
+
+will output:
+idUser | username | firstname | lastname | order | idUser | address 		| city 		| state | zip
+	1	  jsparks	Josh		Sparks	 	1		1	  913 Shore		Arnold				MD	21012
+	2	  jsparks2	Josh		Sparks	 	2		2	  TestLoc		Pasadena			MD	21122
+	
+	
+----------------------------------------
+
+if you didnt want to write out all of those select / joins you would use a view.
+A view you cannot insert into you cant have it execute code, it is just for looking at data that has been merged together.
+
+
+there is built in code for creating view
+
+Create view vwUser
+{
+
+select * form tjvasmfkladsk
+where ajskldalksjdamlsd
+
+}
+
+select * from vwUser
+where idUser > 5
+
+----------------------------------------
+
+stored procedures.
+
+They are executed using 
+exec user.save
+
+user.save is the procedure name.
+
+Procedures perform actionable events.
+
+you pass in parameters to procedures after the exec user.save,
+ex:
+
+EXEC SelectAllCustomers City = "London", PostalCode = "WA1 1DP"
+ 
