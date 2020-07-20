@@ -1,0 +1,18 @@
+These are the tried and true instructions for PFX certificate conversions into ELB. Our certs are from GoDaddy, so the Intermediate Certificate may not be needed:
+
+Procedures to convert a .PFX certificate to an AWS-based certificate (PEM format):
+*Note: the *.pfx file is in PKCS#12 format and includes both the certificate and the private key.
+
+1) Make a folder for the certificate in your c:\cygwin\home\<username>
+2) Copy the PFX file to your newly create cygwin folder
+3) 'cd' to the folder you just create, and make sure the new .PFX file is there by typing 'ls -alrt'
+4) Export the private key: 'openssl pkcs12 -in <certname>.pfx -nocerts -out <certname>.key.pem -nodes
+5) Export the certificate: 'openssl pkcs12 -in <certname>.pfx -nokeys -out <certname>.cert.x509
+6) Convert the certificate from x509 to PEM: 'openssl x509 -inform PEM -in <certname>.cert.pem
+7) Remove the passphrase from the private key: 'openssl rsa -in <certname>.key.pem -out <certname>.server.nopass.key
+8) In the ELB console:
+a) create a name for the certificate
+b) paste the <certname>.server.nopass.key file content into the Private Key section
+c) paste the <certname>.cert.pem file content into the Public Key/Certificate section
+d) paste the gd_bundle-g2-g1.crt content into the Certificate Chain section
+e) save

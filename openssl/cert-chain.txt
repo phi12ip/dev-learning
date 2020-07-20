@@ -1,0 +1,1 @@
+openssl pkcs12 -in mycerts.pfx -cacerts -out myissuercerts.cer

@@ -1,0 +1,11 @@
+#!/bin/bash
+# This script copies contents of ./ex1 to ./ex1.old and clears
+# the current contents
+# Usage: ./clearlogs
+
+LOGFILE=./ex1
+cp $LOGFILE $LOGFILE.old
+cat /dev/null > ./ex1
+echo script file copied and cleaned up
+
+exit 0
